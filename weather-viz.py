@@ -77,13 +77,13 @@ def calc_px1_point_volume_based_on(px1_list_diff):
     if type(px1_list_diff) is not list:
         print('[*] ERROR: The parameter must be in list type.')
         raise
-    return [(diff*15)**2 for diff in px1_list_diff] # handle negative number via power of 2
+    return [(diff*20)**2 for diff in px1_list_diff] # handle negative number via power of 2
 
 def compute_px1_shape_volume_based_on(px1_list_diff):
     if type(px1_list_diff) is not list:
         print('[*] ERROR: The parameter must be in list type.')
         raise
-    return ["o" if diff >= 0 else "v" for diff in px1_list_diff]
+    return ["o" if diff >= 0 else "_" for diff in px1_list_diff]
     
 # --------------------------------------------------------------------------------
 # VISUALIZING
@@ -164,6 +164,7 @@ if __name__ == "__main__":
 
     # (E1) setup
     fig, ax = plt.subplots(1, 1, figsize=(10,10))
+    # ax.set_facecolor('#eeeeee')
 
     # (E2) draw scatter plot
     [add_single_scatter_point(ax, x=month_RegionA_AreaUrban[idx], y=px1_RegionA_AreaUrban[idx], volume=px1_RegionA_Volume[idx], color=regionA_Color, marker=px1_RegionA_Shape[idx]) for idx in range(len(month_RegionA_AreaUrban))]
@@ -181,13 +182,13 @@ if __name__ == "__main__":
         Line2D(range(1), range(1), color='white', markerfacecolor=regionB_Color, markersize=10, marker='o', alpha=0.5, label="Region B"),
         Line2D(range(1), range(1), color='white', markerfacecolor=regionC_Color, markersize=10, marker='o', alpha=0.5, label="Region C"),
         Line2D(range(1), range(1), color='white', markerfacecolor=regionD_Color, markersize=10, marker='o', alpha=0.5, label="Region D"),
-        Line2D(range(1), range(1), color='white', markerfacecolor='gray', markersize=10, marker='o', alpha=0.5, label="Px1 in Urban is higher than in Rural"),
-        Line2D(range(1), range(1), color='white', markerfacecolor='gray', markersize=10, marker='v', alpha=0.5, label="Px1 in Urban is lower than in Rural"),
-        Line2D(range(1), range(1), color='white', markerfacecolor='gray', markersize=5, marker='o', alpha=0.5, label="Diff. between Urban and Rural is small"),
-        Line2D(range(1), range(1), color='white', markerfacecolor='gray', markersize=15, marker='o', alpha=0.5, label="Diff. between Urban and Rural is large"),
+        Line2D(range(1), range(1), color='white', markerfacecolor='gray', markersize=10, marker='o', alpha=0.5, label="Px1 in Urban > Px1 in Rural"),
+        Line2D(range(1), range(1), color='gray', linewidth=0.1, markerfacecolor='gray', markersize=10, marker='_', alpha=0.5, label="Px1 in Urban < Px1 in Rural"),
+        Line2D(range(1), range(1), color='white', markerfacecolor='gray', markersize=5, marker='o', alpha=0.5, label="Small Urban-Rural Diff."),
+        Line2D(range(1), range(1), color='white', markerfacecolor='gray', markersize=15, marker='o', alpha=0.5, label="Large Urban-Rural Diff."),
     ]
 
-    ax.legend(handles=legend_elements, loc='upper left')
+    ax.legend(handles=legend_elements, loc='lower right')
     plt.title("Px1 Value in Urban Area Among Four Regions")
     plt.xlabel("Month")
     plt.ylabel("Px1 Value in Urban Area")
