@@ -185,8 +185,6 @@ if __name__ == "__main__":
         Line2D(range(1), range(1), color='white', markerfacecolor='gray', markersize=10, marker='v', alpha=0.5, label="Px1 in Urban is lower than in Rural"),
         Line2D(range(1), range(1), color='white', markerfacecolor='gray', markersize=5, marker='o', alpha=0.5, label="Diff. between Urban and Rural is small"),
         Line2D(range(1), range(1), color='white', markerfacecolor='gray', markersize=15, marker='o', alpha=0.5, label="Diff. between Urban and Rural is large"),
-        Line2D(range(1), range(1), color='white', markerfacecolor='gray', markersize=15, marker='o', alpha=0.5, label="Diff. between Urban and Rural is large"),
-        # ax.scatter([x], [y], s=[volume], c=color, marker=marker, alpha=alpha, edgecolors='red', linewidths=6)
     ]
 
     ax.legend(handles=legend_elements, loc='upper left')
