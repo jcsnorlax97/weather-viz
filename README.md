@@ -26,7 +26,7 @@ Using any software package you like, replot the weather information on one plot 
 
 ##### Plot
 
-![Solution]('/../output/feb24-output-v1.png)
+![Solution]('/../output/feb27-output-v4_2.png)
 
 ##### Captions
 
