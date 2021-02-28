@@ -92,8 +92,8 @@ def add_single_scatter_point(ax, x, y, volume, color, marker, alpha=0.5):
     diff = math.sqrt(volume)/15 # used for highlighting diff >= 1.0 during experiments before.
     if color == "#ffcc55" and x in ["Aug", "Sep", "Oct", "Nov"]:
         ax.scatter([x], [y], s=[volume], c=color, marker=marker, alpha=alpha, edgecolors='red', linewidths=6)
-    elif color == "#ff7f0e" and x in ["Aug"]:
-        ax.scatter([x], [y], s=[volume], c=color, marker=marker, alpha=alpha, edgecolors='red', linewidths=6)
+    # elif color == "#ff7f0e" and x in ["Aug"]:
+    #     ax.scatter([x], [y], s=[volume], c=color, marker=marker, alpha=alpha, edgecolors='red', linewidths=6)
     else:
         ax.scatter([x], [y], s=[volume], c=color, marker=marker, alpha=alpha)
     pass
@@ -164,6 +164,9 @@ if __name__ == "__main__":
 
     # (E1) setup
     fig, ax = plt.subplots(1, 1, figsize=(10,10))
+
+    # plt.axvline(x=7, color="#dddddd", alpha=0.5, linewidth=40.0)
+    # plt.bar(7, height=12.1, bottom=10, width=1.0, color='#dddddd', alpha=0.6)
     # ax.set_facecolor('#eeeeee')
 
     # (E2) draw scatter plot
